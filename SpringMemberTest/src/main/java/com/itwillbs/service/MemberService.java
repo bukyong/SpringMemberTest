@@ -10,4 +10,6 @@ public interface MemberService {
 	// 회원 로그인 메서드
 	public MemberVO memberLogin(MemberVO vo);
 	
+	// 회원정보 조회 메서드
+	public MemberVO memberInfo(String id);
 }

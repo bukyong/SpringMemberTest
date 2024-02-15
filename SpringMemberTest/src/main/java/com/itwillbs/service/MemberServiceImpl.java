@@ -19,22 +19,34 @@ public class MemberServiceImpl implements MemberService {
 	
 	@Override
 	public void memberJoin(MemberVO vo) {
-		logger.debug(" S : memberJoin(MemberVO vo) 실행 ");
-		logger.debug(" S : DAO 회원가입 처리 동작 호출 ");
+		logger.debug(" memberJoin(MemberVO vo) 실행 ");
+		logger.debug(" DAO 회원가입 처리 동작 호출 ");
 		
 		mdao.insertMember(vo);
 		
-		logger.debug(" S : 회원가입 완료 ");
-		logger.debug(" S : 다시 컨트롤러로 이동 ");
+		logger.debug(" 회원가입 완료 ");
+		logger.debug(" 다시 컨트롤러로 이동 ");
 		
 	}
 	
 	@Override
 	public MemberVO memberLogin(MemberVO vo) {
-		logger.debug(" S : loginMember(MemberVO vo) 실행 ");
-		logger.debug(" S : DAO 로그인 처리동작 호출 ");
+		logger.debug(" loginMember(MemberVO vo) 실행 ");
+		logger.debug(" DAO 로그인 처리동작 호출 ");
 		
 		MemberVO resultVO = mdao.loginMember(vo);
+		
+		return resultVO;
+	}
+	
+	@Override
+	public MemberVO memberInfo(String id) {
+		logger.debug(" memberInfo(String id) 실행 ");
+		logger.debug(" DAO 회원정보 조회 처리동작 호출 ");
+		
+		MemberVO resultVO = mdao.getMember(id);
+		
+		logger.debug(" 회원정보 조회 끝, 정보를 컨트롤러로 전송 ");	
 		
 		return resultVO;
 	}

@@ -21,7 +21,7 @@ public class MemberDAOImpl implements MemberDAO {
 	
 	@Override
 	public void insertMember(MemberVO vo) {
-		logger.debug(" insertMember(MemberVO vo) 실행 ");
+		logger.debug(" insertMember(MemberVO vo) 호출 ");
 		
 		sqlSession.insert(NAMESPACE + ".insertMember", vo);
 		
@@ -30,10 +30,17 @@ public class MemberDAOImpl implements MemberDAO {
 	
 	@Override
 	public MemberVO loginMember(MemberVO vo) {
-		logger.debug(" loginMember(MemberVO vo) 실행");
+		logger.debug(" loginMember(MemberVO vo) 호출 ");
 		
 		MemberVO resultVO = sqlSession.selectOne(NAMESPACE + ".loginMember", vo);
 		
 		return resultVO;
+	}
+	
+	@Override
+	public MemberVO getMember(String userid) {
+		logger.debug(" getMember(String userid) 호출 ");
+		
+		return sqlSession.selectOne(NAMESPACE + ".getMember", userid);
 	}
 }

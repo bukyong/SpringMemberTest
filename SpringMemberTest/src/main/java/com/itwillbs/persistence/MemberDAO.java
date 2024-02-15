@@ -9,5 +9,8 @@ public interface MemberDAO {
 	
 	// 로그인 처리 동작
 	public MemberVO loginMember(MemberVO vo);
+	
+	// 회원정보 조회 동작
+	public MemberVO getMember(String userid);
 
 }
