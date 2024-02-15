@@ -108,7 +108,41 @@ public class MemberController {
 		MemberVO resultVO = mService.memberInfo(id);
 		model.addAttribute("resultVO", resultVO);
 		
-		// 연결된 view페이지로 이동 (void -> /member/info.jsp)
+		// 연결된 view페이지로 이동 (/member/info.jsp)
 	}
 	
+	// /member/update
+	// 회원정보 수정 - GET
+	@RequestMapping(value = "/update",method = RequestMethod.GET)
+	public void memberUpdateGET(HttpSession session, Model model) {
+		logger.debug(" memberUpdateGET() 실행 ");
+		
+		String id = (String) session.getAttribute("id");
+		
+		MemberVO resultVO = mService.memberInfo(id);
+		logger.debug(" resultVO :  "+resultVO);
+		
+		model.addAttribute("resultVO", resultVO);
+		
+		// 연결된 view페이지로 이동 (/member/update.jsp)
+		
+	}
+	
+	// 회원정보 수정 - POST
+	@RequestMapping(value = "/update",method = RequestMethod.POST)
+	public String memberUpdatePOST(MemberVO vo) {
+		logger.debug(" memberUpdatePOST() 호출 ");
+		
+		logger.debug(" 수정할 정보 : "+vo);
+		
+		// 서비스 -> DAO 회원정보 수정동작 호출
+		int result = mService.memberUpdate(vo);
+		logger.debug(" 결과 : "+result);
+		
+		if(result == 1) {
+			return "redirect:/member/main";
+		}
+		
+		return "redirect:/member/update";
+	}
 }

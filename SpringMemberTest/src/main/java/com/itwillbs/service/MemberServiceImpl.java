@@ -50,4 +50,12 @@ public class MemberServiceImpl implements MemberService {
 		
 		return resultVO;
 	}
+	
+	@Override
+	public int memberUpdate(MemberVO vo) {
+		logger.debug(" S : memberUpdate(MemberVO vo) 실행 ");
+		logger.debug(" S : DAO 회원정보 수정 처리동작 호출 ");
+		
+		return mdao.updateMember(vo);
+	}
 }
