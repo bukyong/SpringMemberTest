@@ -22,10 +22,18 @@ public class MemberDAOImpl implements MemberDAO {
 	@Override
 	public void insertMember(MemberVO vo) {
 		logger.debug(" insertMember(MemberVO vo) 실행 ");
-		logger.debug(" sqlSession 사용 -> mapper 호출 ");
 		
 		sqlSession.insert(NAMESPACE + ".insertMember", vo);
 		
 		logger.debug(" mysql 실행 완료!!! ");
+	}
+	
+	@Override
+	public MemberVO loginMember(MemberVO vo) {
+		logger.debug(" loginMember(MemberVO vo) 실행");
+		
+		MemberVO resultVO = sqlSession.selectOne(NAMESPACE + ".loginMember", vo);
+		
+		return resultVO;
 	}
 }

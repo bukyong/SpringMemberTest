@@ -28,4 +28,14 @@ public class MemberServiceImpl implements MemberService {
 		logger.debug(" S : 다시 컨트롤러로 이동 ");
 		
 	}
+	
+	@Override
+	public MemberVO memberLogin(MemberVO vo) {
+		logger.debug(" S : loginMember(MemberVO vo) 실행 ");
+		logger.debug(" S : DAO 로그인 처리동작 호출 ");
+		
+		MemberVO resultVO = mdao.loginMember(vo);
+		
+		return resultVO;
+	}
 }

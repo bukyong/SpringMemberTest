@@ -10,4 +10,10 @@
 	   values(#{userid},#{userpw},#{username},#{useremail})	    
     </insert>
     
+    <!-- 로그인 여부 확인 -->
+    <select id="loginMember" resultType="com.itwillbs.domain.MemberVO">
+    	select * from tbl_member 
+    	where userid=#{userid} and userpw=#{userpw}
+    </select>
+    
 </mapper>
