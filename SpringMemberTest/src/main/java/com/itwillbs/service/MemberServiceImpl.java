@@ -1,5 +1,7 @@
 package com.itwillbs.service;
 
+import java.util.List;
+
 import javax.inject.Inject;
 
 import org.slf4j.Logger;
@@ -65,5 +67,12 @@ public class MemberServiceImpl implements MemberService {
 		logger.debug(" S : DAO 회원정보 삭제 처리동작 호출 ");
 		
 		return mdao.deleteMember(vo);
+	}
+	
+	@Override
+	public List<MemberVO> memberList() {
+		logger.debug(" S : memberList() 실행 ");
+		
+		return mdao.getMemberList();
 	}
 }

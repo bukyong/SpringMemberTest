@@ -34,4 +34,9 @@
     	where userid=#{userid} and userpw=#{userpw}
     </delete>
     
+    <!-- 회원 목록 조회 (관리자) -->
+    <select id="getMemberList"  resultType="com.itwillbs.domain.MemberVO">
+       select * from tbl_member
+    </select>
+    
 </mapper>

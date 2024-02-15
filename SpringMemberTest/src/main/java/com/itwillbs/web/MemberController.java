@@ -1,5 +1,7 @@
 package com.itwillbs.web;
 
+import java.util.List;
+
 import javax.inject.Inject;
 import javax.servlet.http.HttpSession;
 
@@ -172,5 +174,23 @@ public class MemberController {
 		}
 		
 		return "redirect:/member/delete";
+	}
+	
+	// 회원 목록 조회(관리자 기능) - GET
+	@RequestMapping(value = "/list",method = RequestMethod.GET)
+	public String memberListGET(HttpSession session, Model model) {
+		logger.debug(" memberListGET() 실행 ");
+		
+		String id = (String) session.getAttribute("id");
+		
+		if( id == null || !id.equals("admin")) {
+			return "redirect:/member/login";
+		}
+		
+		List<MemberVO> memberList = mService.memberList();
+
+		model.addAttribute("memberList", memberList);
+			    	
+		return  "/member/list";
 	}
 }
