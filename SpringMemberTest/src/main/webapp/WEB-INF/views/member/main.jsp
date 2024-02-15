@@ -25,5 +25,8 @@
 	<hr>
 	<h3><a href="/member/update">회원정보 수정</a></h3>
 	
+	<hr>
+	<h3><a href="/member/delete">회원정보 삭제</a></h3>
+	
 </body>
 </html>

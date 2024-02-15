@@ -28,4 +28,10 @@
     	where userid=#{userid} and userpw=#{userpw}
     </update>
     
+    <!-- 회원정보 삭제 -->
+    <delete id="deleteMember">
+    	delete from tbl_member
+    	where userid=#{userid} and userpw=#{userpw}
+    </delete>
+    
 </mapper>
