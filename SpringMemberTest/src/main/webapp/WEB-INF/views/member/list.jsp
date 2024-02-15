@@ -28,7 +28,7 @@
           <td>${vo.regdate }</td>
        </tr>
       </c:forEach> 
-       
+      
     </table>	
 	
 	<a href="/member/main" > 메인페이지로 </a>

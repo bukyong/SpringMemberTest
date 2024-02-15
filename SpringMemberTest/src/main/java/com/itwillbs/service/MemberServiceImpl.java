@@ -34,7 +34,7 @@ public class MemberServiceImpl implements MemberService {
 	@Override
 	public MemberVO memberLogin(MemberVO vo) {
 		logger.debug(" loginMember(MemberVO vo) 실행 ");
-		logger.debug(" DAO 로그인 처리동작 호출 ");
+		logger.debug(" DAO 로그인 처리 동작 호출 ");
 		
 		MemberVO resultVO = mdao.loginMember(vo);
 		
@@ -44,7 +44,7 @@ public class MemberServiceImpl implements MemberService {
 	@Override
 	public MemberVO memberInfo(String id) {
 		logger.debug(" memberInfo(String id) 실행 ");
-		logger.debug(" DAO 회원정보 조회 처리동작 호출 ");
+		logger.debug(" DAO 회원정보 조회 처리 동작 호출 ");
 		
 		MemberVO resultVO = mdao.getMember(id);
 		
@@ -56,7 +56,7 @@ public class MemberServiceImpl implements MemberService {
 	@Override
 	public int memberUpdate(MemberVO vo) {
 		logger.debug(" S : memberUpdate(MemberVO vo) 실행 ");
-		logger.debug(" S : DAO 회원정보 수정 처리동작 호출 ");
+		logger.debug(" S : DAO 회원정보 수정 처리 동작 호출 ");
 		
 		return mdao.updateMember(vo);
 	}
@@ -64,7 +64,7 @@ public class MemberServiceImpl implements MemberService {
 	@Override
 	public int memberDelete(MemberVO vo) {
 		logger.debug(" S : memberDelete(MemberVO vo) 실행 ");
-		logger.debug(" S : DAO 회원정보 삭제 처리동작 호출 ");
+		logger.debug(" S : DAO 회원정보 삭제 처리 동작 호출 ");
 		
 		return mdao.deleteMember(vo);
 	}
@@ -72,6 +72,7 @@ public class MemberServiceImpl implements MemberService {
 	@Override
 	public List<MemberVO> memberList() {
 		logger.debug(" S : memberList() 실행 ");
+		logger.debug(" S : DAO 회원목록 조회 처리 동작 호출 ");
 		
 		return mdao.getMemberList();
 	}

@@ -30,14 +30,14 @@ public class MemberController {
 	// 회원가입 - GET
 	@RequestMapping(value = "/memberjoin",method = RequestMethod.GET)
 	public void memberJoinGET() {
-		logger.debug(" memberJoinGET() 실행 ");
+		logger.debug(" memberJoinGET() 호출 ");
 		logger.debug(" /member/memberjoin.jsp로 이동 ");
 	}
 	
 	// 회원가입 - POST
 	@RequestMapping(value = "/memberjoin",method = RequestMethod.POST)
 	public String memberJoinPOST(MemberVO vo) {
-		logger.debug(" memberJoinPost() 실행 ");
+		logger.debug(" memberJoinPost() 호출 ");
 		
 		logger.debug(" 전달정보 vo : "+vo);
 		
@@ -83,7 +83,7 @@ public class MemberController {
 	// 메인페이지 - GET
 	@GetMapping(value = "/main")
 	public String memberMainGET() {
-		logger.debug(" /member/main -> memberMainGET() 실행 ");
+		logger.debug(" /member/main -> memberMainGET() 호출 ");
 
 		return "/member/main";
 	}
@@ -91,7 +91,7 @@ public class MemberController {
 	// 로그아웃 - GET 
 	@RequestMapping(value = "/logout",method = RequestMethod.GET)
 	public String memberLogoutGET(HttpSession session) {
-		logger.debug(" /member/logout -> memberLogoutGET() 실행 ");
+		logger.debug(" /member/logout -> memberLogoutGET() 호출 ");
 		
 		session.invalidate();
 		logger.debug(" 세션객체 초기화(로그아웃) ");
@@ -103,7 +103,7 @@ public class MemberController {
 	// 회원정보 조회 - GET
 	@RequestMapping(value = "/info",method = RequestMethod.GET)
 	public void memberInfoGET(HttpSession session,Model model) {
-		logger.debug("/member/info -> memberInfoGET() 실행");
+		logger.debug("/member/info -> memberInfoGET() 호출");
 		
 		String id = (String) session.getAttribute("id");
 		logger.debug(" id : "+id);
@@ -118,7 +118,7 @@ public class MemberController {
 	// 회원정보 수정 - GET
 	@RequestMapping(value = "/update",method = RequestMethod.GET)
 	public void memberUpdateGET(HttpSession session, Model model) {
-		logger.debug(" memberUpdateGET() 실행 ");
+		logger.debug(" memberUpdateGET() 호출 ");
 		
 		String id = (String) session.getAttribute("id");
 		
@@ -176,10 +176,10 @@ public class MemberController {
 		return "redirect:/member/delete";
 	}
 	
-	// 회원 목록 조회(관리자 기능) - GET
+	// 회원목록 조회(관리자 기능) - GET
 	@RequestMapping(value = "/list",method = RequestMethod.GET)
 	public String memberListGET(HttpSession session, Model model) {
-		logger.debug(" memberListGET() 실행 ");
+		logger.debug(" memberListGET() 호출 ");
 		
 		String id = (String) session.getAttribute("id");
 		
@@ -191,6 +191,6 @@ public class MemberController {
 
 		model.addAttribute("memberList", memberList);
 			    	
-		return  "/member/list";
+		return "/member/list";
 	}
 }

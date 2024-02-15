@@ -18,9 +18,9 @@ public interface MemberDAO {
 	// 회원정보 수정 동작
 	public int updateMember(MemberVO uvo);
 	
-	// 회원정보 삭제
+	// 회원정보 삭제 동작
 	public int deleteMember(MemberVO dvo);
 	
-	// 회원 목록 조회
+	// 회원목록 조회 동작
 	public List<MemberVO> getMemberList();
 }
