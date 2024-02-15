@@ -83,4 +83,15 @@ public class MemberController {
 
 		return "/member/main";
 	}
+	
+	// 로그아웃 - GET 
+	@RequestMapping(value = "/logout",method = RequestMethod.GET)
+	public String memberLogoutGET(HttpSession session) {
+		logger.debug(" /member/logout -> memberLogoutGET() 실행 ");
+		
+		session.invalidate();
+		logger.debug(" 세션객체 초기화(로그아웃) ");
+		
+		return "redirect:/member/main";
+	}
 }
