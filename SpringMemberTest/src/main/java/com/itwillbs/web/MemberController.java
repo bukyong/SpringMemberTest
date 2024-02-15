@@ -6,6 +6,7 @@ import javax.servlet.http.HttpSession;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -42,6 +43,7 @@ public class MemberController {
 		return "redirect:/member/login";
 	}
 	
+	// /member/login
 	// 로그인 - GET
 	@RequestMapping(value = "/login",method = RequestMethod.GET)
 	public void memberLoginGET() {
@@ -71,5 +73,14 @@ public class MemberController {
 		}		
 		
 		return "redirect:"+addr;
+	}
+	
+	// /member/main
+	// 메인페이지 - GET
+	@GetMapping(value = "/main")
+	public String memberMainGET() {
+		logger.debug(" /member/main -> memberMainGET() 실행 ");
+
+		return "/member/main";
 	}
 }
